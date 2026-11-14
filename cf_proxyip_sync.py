@@ -432,10 +432,10 @@ def write_summary(stats, args, can_sync, summary_path):
 
 def main():
     ap = argparse.ArgumentParser(description="CF ProxyIP 扫描 + DNS 同步")
-    ap.add_argument("--regions", default="HK,JP,US", help="地区列表，逗号分隔（默认 HK,JP,US）")
+    ap.add_argument("--regions", default="SIN,US", help="地区列表，逗号分隔（默认 HK,JP,US）")
     ap.add_argument("--domain", default=os.environ.get("CF_TARGET_DOMAIN", ""), help="主域名，如 your-domain.com（子域名自动拼接）")
     ap.add_argument("--batch", type=int, default=100, help="每批随机抽多少个 IP 测试（默认 100）")
-    ap.add_argument("--target", type=int, default=3, help="每个地区凑几个有效 IP（默认 3）")
+    ap.add_argument("--target", type=int, default=5, help="每个地区凑几个有效 IP（默认 3）")
     ap.add_argument("--workers", type=int, default=40, help="每地区并发测速线程数（默认 40）")
     ap.add_argument("--timeout", type=int, default=10, help="单 IP 测速超时秒数（默认 10）")
     ap.add_argument("--full", action="store_true", help="强制全量扫描（默认增量：先探活上次的 IP，失效才补扫）")
